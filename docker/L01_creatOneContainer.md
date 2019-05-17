@@ -37,7 +37,8 @@ c5e155d5a1d1: Already exists
 ## docker cmd
   $ docker exec -it [:name] /bin/bash  
   $ exit
-
+  
+  $ docker run --name [:appname] -d -v [:本地目录]:[:容器目录]  -p [:容器端口号]:[:本地端口号]  容器名称 
 
 
 
