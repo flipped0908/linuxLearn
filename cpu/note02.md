@@ -39,8 +39,6 @@ line:537
 ### 系统调用
 
 
-
-
 系统调用表
 
 64位的系统调用定义在另一个文件arch/x86/entry/syscalls/syscall_64.tbl里。例如open是这样定义的:
