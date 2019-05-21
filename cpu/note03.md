@@ -42,3 +42,88 @@ int (*core_dump)(struct coredump_params *cprm); unsigned long min_coredump; /* m
 
 ![](./img/03-01.png)   
 
+
+
+
+##### 线程
+
+如何创建线程，线程都有哪些数据，如何对线程数据进行保护。
+
+######   数据的保护
+我们先来看一种方式，Mutex，全称Mutual Exclusion，中文叫互斥。
+
+```  
+
+pthread_mutex_t g_money_lock;
+
+void *transfer(void *notused) {
+    pthread_t tid = pthread_self();
+    printf("Thread %u is transfering money!\n", (unsigned int)tid);
+   
+    pthread_mutex_lock(&g_money_lock);
+   
+    sleep(rand()%10);
+    money_of_tom+=10;
+    sleep(rand()%10);
+    money_of_jerry-=10;
+
+    pthread_mutex_unlock(&g_money_lock);
+    
+    ...
+
+}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
