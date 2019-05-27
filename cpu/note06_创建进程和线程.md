@@ -71,7 +71,11 @@ check_preempt_wakeup还是会调用update_curr更新一次统计量
 
 
 
+## 如何创建一个线程  
 
+
+创建进程的话，调用的系统调用是fork，在copy_process函数里面，会将五大结构files_struct、fs_struct、 sighand_struct、signal_struct、mm_struct都复制一遍，
+从此父进程和子进程各用各的数据结构。而创建线 程的话，调用的是系统调用clone，在copy_process函数里面， 五大结构仅仅是引用计数加一，也即线程共 享进程的数据结构。
 
 
 
