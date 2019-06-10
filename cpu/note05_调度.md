@@ -9,7 +9,7 @@
 
 在task_struct中，有一个成员变量，我们叫调度策略。  unsigned int policy;  
 ```  
-    #define SCHED_NORMAL  0
+  #define SCHED_NORMAL  0
   #define SCHED_FIFO  1
   #define SCHED_RR  2
   #define SCHED_BATCH  3

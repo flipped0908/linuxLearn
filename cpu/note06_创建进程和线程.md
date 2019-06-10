@@ -24,14 +24,11 @@ dup_task_struct主要做了下面几件事情:
 
 #### 接下来，copy_process重新设置进程运行的统计量。 
 
-
 #### 接下来，copy_process开始设置调度相关的变量。 
 
 sched_fork主要做了下面几件事情:
 
-
 ####  接下来，copy_process开始初始化与文件和文件系统相关的变量。
-
 
 ####  接下来，copy_process开始初始化与信号相关的变量。
 
@@ -39,9 +36,7 @@ sched_fork主要做了下面几件事情:
 
 ####  接下来，copy_process开始分配pid，设置tid，group_leader，并且建立进程之间的亲缘关系 
 
-
 ####  好了，copy_process要结束了，上面图中的组件也初始化的差不多了。
-
 
 
 ##  fork的第二件大事:唤醒新进程 
@@ -66,13 +61,7 @@ check_preempt_wakeup还是会调用update_curr更新一次统计量
 
 如果新创建的进程应该抢占父进程，在什么时间抢占呢?别忘了fork是一个系统调用，从系统调用返回的时 候，是抢占的一个好时机，如果父进程判断自己已经被设置为TIF_NEED_RESCHED，就让子进程先跑，抢占 自己。   
 
-
-
-
-
-
 ## 如何创建一个线程  
-
 
 创建进程的话，调用的系统调用是fork，在copy_process函数里面，会将五大结构files_struct、fs_struct、 sighand_struct、signal_struct、mm_struct都复制一遍，
 从此父进程和子进程各用各的数据结构。而创建线 程的话，调用的是系统调用clone，在copy_process函数里面， 五大结构仅仅是引用计数加一，也即线程共 享进程的数据结构。
